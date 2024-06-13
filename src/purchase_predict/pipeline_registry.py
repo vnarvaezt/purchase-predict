@@ -1,4 +1,5 @@
 """Project pipelines."""
+
 from __future__ import annotations
 
 from kedro.framework.project import find_pipelines
@@ -16,9 +17,8 @@ def register_pipelines() -> dict[str, Pipeline]:
     p_preprocesing = preprocessing_pipeline.create_pipeline()
     p_model = model_pipeline.create_pipeline()
     return {
-         "__default__": p_model,
+        "__default__": p_model,
         "global": Pipeline([p_preprocesing, p_model]),
         "preprocessing": p_preprocesing,
         "data_science": p_model,
-        }
-
+    }

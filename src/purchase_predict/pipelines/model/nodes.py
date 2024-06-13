@@ -138,4 +138,4 @@ def auto_ml(
 
     # In case we have multiple models
     best_model = max(opt_models, key=lambda x: x["score"])
-    return dict(model=best_model) 
+    return dict(model=best_model)

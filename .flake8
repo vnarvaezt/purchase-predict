@@ -1,0 +1,2 @@
+max-complexity = 16
+exclude = .git, .ipython, __pycache__, venv, build, dist
