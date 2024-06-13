@@ -17,6 +17,7 @@ def register_pipelines() -> dict[str, Pipeline]:
     p_model = model_pipeline.create_pipeline()
     return {
          "__default__": p_model,
+        "global": Pipeline([p_preprocesing, p_model]),
         "preprocessing": p_preprocesing,
         "data_science": p_model,
         }
