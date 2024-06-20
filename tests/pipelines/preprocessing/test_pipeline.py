@@ -2,6 +2,7 @@ from kedro.runner import SequentialRunner
 
 from purchase_predict.pipelines.preprocessing.pipeline import create_pipeline
 
+
 def test_pipeline(catalog_test):
     # allows the pipeline execution
     runner = SequentialRunner()
