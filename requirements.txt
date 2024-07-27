@@ -15,3 +15,5 @@ setuptools
 #kedro[all]
 #kedro-datasets[pickle-dataset]
 kedro-viz
+google.cloud
+python-dotenv
