@@ -107,18 +107,22 @@ def auto_ml(
     y_test: np.ndarray,
     max_evals: int = 40,
     log_to_mlflow: bool = False,
-    experiment_id:int = -1,
+    experiment_id: int = 1,
+    model_registry_name: str = "model",
 ) -> BaseEstimator:
     """
     Runs training of multiple model instances and select the most accurated based on objective function.
     """
     X = pd.concat((X_train, X_test))
     y = pd.concat((y_train, y_test))
-    
+
     run_id = ""
     if log_to_mlflow:
         mlflow.set_tracking_uri(os.getenv("MLFLOW_SERVER"))
-        run = mlflow.start_run(experiment_id=experiment_id)
+        mlflow.set_experiment(os.getenv("EXPERIMENT_NAME"))
+        experiment = mlflow.get_experiment_by_name(os.getenv("EXPERIMENT_NAME"))
+        print("====Experiment", experiment)
+        run = mlflow.start_run(experiment_id=experiment.experiment_id)
         run_id = run.info.run_id
 
     opt_models = []
@@ -131,7 +135,6 @@ def auto_ml(
             metric=lambda x, y: -f1_score(x, y),
             max_evals=max_evals,
         )
-        print("done")
         # Training the supposed best model with found hyper-parameters
         model = train_model(
             model_specs["class"],
@@ -148,17 +151,20 @@ def auto_ml(
         )
     # In case we have multiple models
     best_model = max(opt_models, key=lambda x: x["score"])
-    
+
     if log_to_mlflow:
-        model_metrics = {
-            "f1": best_model["score"]
-        }
+        model_metrics = {"f1": best_model["score"]}
 
     mlflow.log_metrics(model_metrics)
     mlflow.log_params(optimum_params)
     # Only use if validation curves are produced
     mlflow.log_artifacts("data/08_reporting", artifact_path="plots")
-    mlflow.sklearn.log_model(best_model["model"], "model")
+    mlflow.sklearn.log_model(
+        best_model["model"],
+        artifact_path="sklearn-model",
+        registered_model_name=model_registry_name,
+    )
+
     mlflow.end_run()
 
-    return dict(model=best_model, run_id)
+    return dict(model=best_model, mlflow_run_id=run_id)

@@ -12,8 +12,9 @@ scikit-learn
 hyperopt
 lightgbm
 setuptools
-#kedro[all]
+kedro[all]
 #kedro-datasets[pickle-dataset]
 kedro-viz
-google.cloud
+google-cloud-storage
 python-dotenv
+mlflow
