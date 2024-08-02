@@ -1,5 +1,5 @@
 test_ratio: 0.3
-automl_max_evals: 1
+automl_max_evals: 10
 project_id: "blent-sandbox-8972132652"
 bucket_path: "gs://blent-purchase-predict-bucket"
 mlflow_experiment_id: 1

@@ -1,9 +1,8 @@
+from typing import Any, Dict
+
 import pandas as pd
-
-from typing import Dict, Any
-
-from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
 
 
 def encode_features(dataset: pd.DataFrame) -> pd.DataFrame:
@@ -16,8 +15,11 @@ def encode_features(dataset: pd.DataFrame) -> pd.DataFrame:
     for label in ["category", "sub_category", "brand"]:
         features[label] = features[label].astype(str)
         features.loc[features[label] == "nan", label] = "unknown"
+        # TODO: transform fit and transform in 2 steps and save encoder
         encoder = LabelEncoder()
-        features.loc[:, label] = encoder.fit_transform(features.loc[:, label].copy())
+        encoder.fit(features.loc[:, label].copy())
+        features.loc[:, label] = encoder.transform(features.loc[:, label].copy())
+        # features.loc[:, label] = encoder.fit_transform(features.loc[:, label].copy())
         features[label] = features[label].astype(int)
         encoders.append((label, encoder))
 

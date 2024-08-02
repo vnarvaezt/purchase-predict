@@ -1,9 +1,8 @@
-import pandas as pd
 import numpy as np
-from purchase_predict.pipelines.preprocessing.nodes import (
-    encode_features,
-    split_dataset,
-)
+import pandas as pd
+
+from purchase_predict.pipelines.preprocessing.nodes import (encode_features,
+                                                            split_dataset)
 
 MIN_SAMPLES = 5000
 BALANCE_THRESHOLD = 0.1
@@ -15,19 +14,14 @@ def test_encode_features(dataset_not_encoded):
     # Checking column 'purchased' that all values are either 0 or 1
     assert df["purchased"].isin([0, 1]).all()
 
-    print(df[["brand", "category", "sub_category"]])
-
     # Checking that all columns are numeric
     for col in df.columns:
-        print("======", col)
         assert pd.api.types.is_numeric_dtype(df.dtypes[col])
-        f"===={col}"
 
     # Checking that we have enough samples
     assert df.shape[0] > MIN_SAMPLES
     # Checking that classes have at least BALANCE_THRESHOLD percent of data
     assert (df["purchased"].value_counts() / df.shape[0] > BALANCE_THRESHOLD).all()
-    print(df.head())
 
 
 def test_split_dataset(dataset_encoded, test_ratio):

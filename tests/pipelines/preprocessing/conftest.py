@@ -1,8 +1,10 @@
-import pytest
-import pandas as pd
 import os
-from purchase_predict.pipelines.preprocessing.nodes import encode_features
+
+import pandas as pd
+import pytest
 from kedro.io import DataCatalog, MemoryDataset
+
+from purchase_predict.pipelines.preprocessing.nodes import encode_features
 
 
 @pytest.fixture(scope="module")

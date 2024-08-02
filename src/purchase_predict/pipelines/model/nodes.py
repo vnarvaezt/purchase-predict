@@ -1,20 +1,15 @@
+import os
+import warnings
+from typing import Any, Callable, Dict, Tuple
+
+import mlflow
 import numpy as np
 import pandas as pd
-
-from typing import Callable, Tuple, Any, Dict
-import os
-import mlflow
-
-
+from hyperopt import fmin, hp, tpe
+from lightgbm.sklearn import LGBMClassifier
 from sklearn.base import BaseEstimator
 from sklearn.metrics import f1_score
 from sklearn.model_selection import RepeatedKFold
-
-from lightgbm.sklearn import LGBMClassifier
-
-from hyperopt import hp, tpe, fmin
-
-import warnings
 
 warnings.filterwarnings("ignore")
 
@@ -158,7 +153,11 @@ def auto_ml(
     mlflow.log_metrics(model_metrics)
     mlflow.log_params(optimum_params)
     # Only use if validation curves are produced
+    # loads folder
     mlflow.log_artifacts("data/08_reporting", artifact_path="plots")
+    # loads file
+    mlflow.log_artifact("data/04_feature/transform_features.pkl")
+
     mlflow.sklearn.log_model(
         best_model["model"],
         artifact_path="sklearn-model",
