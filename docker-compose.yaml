@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  mykedro:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["kedro", "run"]
+    ports:
+      - 8080:8080
+  # mlflow:
+  #   build:
+  #     context: mlflow/.
+  #     dockerfile: Dockerfile
+  #   image: mlflow_server
+  #   container_name: mlflow_server
+  #   environment:
+  #     - MLFLOW_BACKEND_STORE_URI=sqlite:///mlflow.db
+  #     - MLFLOW_ARTIFACT_ROOT=/mlflow/artifacts
+  #   command: ["mlflow", "server", "--host", "0.0.0.0"]
+  #   ports:
+  #     - "5000:5000"  # Maps port 5000 of the container to port 8080 on the host
+  #   networks:
+  #     - mlflow_network
+
+networks:
+  default:
+    external: true
+    name: mlflow_network

@@ -1,0 +1,26 @@
+##########################
+# Kedro PROJECT
+
+# ignore Dockerfile and .dockerignore
+Dockerfile
+.dockerignore
+
+# ignore all local configuration
+conf/local
+!conf/local/.gitkeep
+
+# ignore everything in the following folders
+logs
+notebooks
+references
+docs
+results
+*.csv
+.venv
+.pytest_cache
+*.pkl
+# except the following
+!logs/.gitkeep
+!notebooks/.gitkeep
+!references/.gitkeep
+!results/.gitkeep
