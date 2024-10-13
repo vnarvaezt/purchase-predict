@@ -14,7 +14,7 @@ This repository contains a Kedro project generated using `Kedro 0.19.5`. The pro
 * MLflow
 
 ## Running the project with Docker
-
+https://github.com/user-attachments/assets/349e6475-4d0e-4308-8ae0-ce99457be49f
 1. **Clone the repositories** :
 
 ```python
@@ -25,6 +25,10 @@ git clone https://github.com/vnarvaezt/purchase-predict_api.git
 2. Set up docker for each project
 
 
+
+
+
+
 ```
 cd purchase-predict-api
 docker compose up -d --build
@@ -32,7 +36,7 @@ cd purchase-predict
 docker compose up -d --build
 ```
 
-# Running the project with Docker
+# Running the project locally
 
 1. **Clone the repository** :
 
