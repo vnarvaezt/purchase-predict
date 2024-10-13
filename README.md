@@ -22,7 +22,7 @@ git clone https://github.com/vnarvaezt/purchase-predict.git
 git clone https://github.com/vnarvaezt/purchase-predict_api.git
 ```
 
-Set up docker for each project
+2. Set up docker for each project
 
 
 ```
@@ -36,20 +36,21 @@ docker compose up -d --build
 
 1. **Clone the repository** :
 
-```python
+```bash
 git clone https://github.com/vnarvaezt/purchase-predict.git
 cd purchase-predict
 ```
 
 2. Install requirements
-
+```bash
 pip install -r requirements.txt
+```
 
 3. Set up docker
    ```bash
    docker build -t kedro_mlflow_app .
    ```
-4. **Configure environment variables** :
+4. Configure environment variables :
 
 * For MLflow, set up the following variables in `.env` or your environment:
 
