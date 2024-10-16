@@ -14,7 +14,10 @@ This repository contains a Kedro project generated using `Kedro 0.19.5`. The pro
 * MLflow
 
 ## Running the project with Docker
-https://github.com/user-attachments/assets/349e6475-4d0e-4308-8ae0-ce99457be49f
+
+https://github.com/user-attachments/assets/245e1a2d-309a-47cb-be27-19503fa8561d
+
+
 1. **Clone the repositories** :
 
 ```python
