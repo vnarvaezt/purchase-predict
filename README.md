@@ -40,7 +40,7 @@ docker compose up -d --build
 ```
 
 # Running the project locally
-
+https://www.youtube.com/watch?v=vUMTCgx-8hg
 1. **Clone the repository** :
 
 ```bash
