@@ -1,6 +1,5 @@
 import os
 
-import mlflow
 from mlflow.tracking import MlflowClient
 
 
@@ -9,7 +8,7 @@ def assign_alias(registry_name: str):
     Asigns alias
     """
     env = os.getenv("ENV")
-    if env == "local" or env == "staging":
+    if env in ("local", "staging"):
         alias = "challenger"
     elif env == "production":
         alias = "champion"

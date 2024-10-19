@@ -1,4 +1,6 @@
-# purchase-predict
+
+# purchase-predict [![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/pylint-dev/pylint)
+
 
 ## Overview
 
@@ -17,7 +19,6 @@ This repository contains a Kedro project generated using `Kedro 0.19.5`. The pro
 
 https://github.com/user-attachments/assets/245e1a2d-309a-47cb-be27-19503fa8561d
 
-
 1. **Clone the repositories** :
 
 ```python
@@ -27,11 +28,6 @@ git clone https://github.com/vnarvaezt/purchase-predict_api.git
 
 2. Set up docker for each project
 
-
-
-
-
-
 ```
 cd purchase-predict-api
 docker compose up -d --build
@@ -40,7 +36,9 @@ docker compose up -d --build
 ```
 
 # Running the project locally
+
 https://www.youtube.com/watch?v=vUMTCgx-8hg
+
 1. **Clone the repository** :
 
 ```bash
@@ -49,6 +47,7 @@ cd purchase-predict
 ```
 
 2. Install requirements
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -73,6 +72,7 @@ export ENV="local"
    mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlflow_artifacts --host 0.0.0.0
 
    ```
+
    6. Running the project
 
    ```bash
