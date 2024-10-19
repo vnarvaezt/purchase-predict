@@ -73,7 +73,7 @@ export ENV="local"
 
    ```
 
-   6. Running the project
+6. Running the project
 
    ```bash
    kedro run
