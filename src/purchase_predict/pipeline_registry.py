@@ -2,17 +2,15 @@
 
 from __future__ import annotations
 
-from kedro.framework.project import find_pipelines
 from kedro.pipeline import Pipeline
 
 from purchase_predict.pipelines.deploy import pipeline as deployment_pipeline
 from purchase_predict.pipelines.model import pipeline as model_pipeline
-# from purchase_predict.pipelines.loading import pipeline as loading_pipeline
-from purchase_predict.pipelines.preprocessing_old import \
-    pipeline as preprocessing_pipeline
 
-# TODO:
-# def register_model(model, registry_name):
+# from purchase_predict.pipelines.loading import pipeline as loading_pipeline
+from purchase_predict.pipelines.preprocessing import (
+    pipeline as preprocessing_pipeline,
+)
 
 
 def register_pipelines() -> dict[str, Pipeline]:
