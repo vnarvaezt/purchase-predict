@@ -1,7 +1,5 @@
-# purchase-predict [![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/pylint-dev/pylint)
-
-`[![pylint](https://img.shields.io/badge/PyLint%20Score-7.18-orange?logo=python&logoColor=whitehttps://img.shields.io/badge/PyLint%20Score-7.18-orange?logo=python&logoColor=white)`
-
+![pylint](https://img.shields.io/badge/PyLint%20Score-7.18-orange?logo=python&logoColor=whitehttps://img.shields.io/badge/PyLint%20Score-7.18-orange?logo=python&logoColor=white)
+# purchase-predict 
 ## Overview
 
 This repository contains a Kedro project generated using `Kedro 0.19.5`. The project aims to test Kedro as a framework for managing machine learning workflows, and it integrates with MLflow for experiment tracking and Flask for serving models via an API.
