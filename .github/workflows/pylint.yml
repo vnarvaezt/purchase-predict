@@ -29,6 +29,9 @@ jobs:
         run: |
           pylint src/**/*.py > pylint_report.txt || true
         continue-on-error: true
+      - name: Display report
+        run: |
+          cat pylint_report.txt
 
       - name: Display pylint score
         run: |
