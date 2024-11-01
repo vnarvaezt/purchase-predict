@@ -6,11 +6,9 @@ from kedro.pipeline import Pipeline
 
 from purchase_predict.pipelines.deploy import pipeline as deployment_pipeline
 from purchase_predict.pipelines.model import pipeline as model_pipeline
-
 # from purchase_predict.pipelines.loading import pipeline as loading_pipeline
-from purchase_predict.pipelines.preprocessing import (
-    pipeline as preprocessing_pipeline,
-)
+from purchase_predict.pipelines.preprocessing import \
+    pipeline as preprocessing_pipeline
 
 
 def register_pipelines() -> dict[str, Pipeline]:

@@ -18,3 +18,7 @@ kedro-viz
 google-cloud-storage
 python-dotenv
 mlflow
+pylint
+black
+isort
+flake8
