@@ -27,7 +27,7 @@ jobs:
 
       - name: Run pylint
         run: |
-          pylint src/**/*.py > pylint_report.txt || true
+          pylint src/purchase_predict/**/*.py > pylint_report.txt || true
         continue-on-error: true
       - name: Display report
         run: |
@@ -35,5 +35,5 @@ jobs:
 
       - name: Display pylint score
         run: |
-          score=$(tail -n 1 pylint_report.txt | grep -oP '(?<=rated at )\d+\.\d+')
-          echo "Pylint score: $score"
+          score=$(tail -n 1 pylint_report.txt | grep -oP '(?<=rated at )\d+\.\d+'
+          echo "Pylint score: $score/10"
