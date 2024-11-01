@@ -1,6 +1,6 @@
-
 # purchase-predict [![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/pylint-dev/pylint)
 
+`[![pylint]()](https://redirect/link)`
 
 ## Overview
 
@@ -72,7 +72,6 @@ export ENV="local"
    mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlflow_artifacts --host 0.0.0.0
 
    ```
-
 6. Running the project
 
    ```bash
