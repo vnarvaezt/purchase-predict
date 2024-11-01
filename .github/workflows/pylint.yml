@@ -35,5 +35,5 @@ jobs:
 
       - name: Display pylint score
         run: |
-          score=$(tail -n 1 pylint_report.txt | grep -oP '(?<=rated at )\d+\.\d+'
+          score=$(grep -oP '(?<=rated at )\d+\.\d+' pylint_report.txt || echo "Score not found")
           echo "Pylint score: $score/10"
