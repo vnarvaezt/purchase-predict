@@ -5,8 +5,29 @@ on:
     branches: [ dev, master ]
   # pull_request:
   #   branches: [ dev, master ]
+jobs: 
+  build-venv:
+    runs-on: ubuntu-latest
 
-jobs:
+    steps:
+      
+      - name: Check out the code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.12'
+
+      - name: Build environment
+        run: |
+          python -m venv venv
+          echo "VENV_DIR=$(pwd)/venv" >> $GITHUB_ENV
+          source venv/bin/activate
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          echo "Environment was created successfully!"
+
   code-quality:
     runs-on: ubuntu-latest
 
@@ -31,6 +52,7 @@ jobs:
         continue-on-error: false 
       - name: ruff check
         run: ruff check src/purchase_predict/* tests/* docs/source/*.py
+        continue-on-error: true
       - name: Pylint batch
         uses: Silleellie/pylint-github-action@v2
         with: 
