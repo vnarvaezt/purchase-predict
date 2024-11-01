@@ -1,6 +1,6 @@
 # purchase-predict [![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/pylint-dev/pylint)
 
-`[![pylint]()](https://redirect/link)`
+`[![pylint](https://img.shields.io/badge/PyLint%20Score-7.18-orange?logo=python&logoColor=whitehttps://img.shields.io/badge/PyLint%20Score-7.18-orange?logo=python&logoColor=white)`
 
 ## Overview
 
