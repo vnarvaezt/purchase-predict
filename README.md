@@ -1,4 +1,4 @@
-![pylint](https://img.shields.io/badge/PyLint%20Score-7.18-orange?logo=python&logoColor=whitehttps://img.shields.io/badge/PyLint%20Score-7.18-orange?logo=python&logoColor=white)
+![pylint](https://img.shields.io/badge/PyLint%20Score-7.18-orange?logo=python&logoColor=white)
 # purchase-predict 
 ## Overview
 
