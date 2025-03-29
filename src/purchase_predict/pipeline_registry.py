@@ -23,10 +23,10 @@ def register_pipelines() -> dict[str, Pipeline]:
     return {
         "__default__": p_preprocesing
         + p_model
-        + p_deploy
+        + p_deploy,
         # "global": Pipeline([p_preprocesing, p_model, p_deploy]),
         # "loading_pipeline": p_loading,
         # "preprocessing": p_preprocesing,
-        # "data_science": p_model,
+        "data_science": p_model,
         # "deployment": p_deploy,
     }

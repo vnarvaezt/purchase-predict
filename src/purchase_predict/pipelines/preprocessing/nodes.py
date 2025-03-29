@@ -17,7 +17,6 @@ def encode_features(dataset: pd.DataFrame) -> pd.DataFrame:
     features[variables_to_encode] = features[variables_to_encode].replace(
         ["nan", np.NaN], "unknown"
     )
-    print("hellooooo")
 
     encoders = []
     for label in variables_to_encode:

@@ -8,7 +8,7 @@ import pandas as pd
 from hyperopt import fmin, hp, tpe
 from lightgbm.sklearn import LGBMClassifier
 from sklearn.base import BaseEstimator
-from sklearn.metrics import f1_score
+from sklearn.metrics import f1_score, recall_score, precision_score
 from sklearn.model_selection import RepeatedKFold
 
 warnings.filterwarnings("ignore")
@@ -141,14 +141,27 @@ def auto_ml(
                 "model": model,
                 "name": model_specs["name"],
                 "params": optimum_params,
-                "score": f1_score(y_test, model.predict(X_test)),
+                "score_train": f1_score(y_train, model.predict(X_train)),
+                "recall_train": recall_score(y_train, model.predict(X_train)),
+                "precision_train": precision_score(y_train, model.predict(X_train)),
+                "score_test": f1_score(y_test, model.predict(X_test)),
+                "recall_test": recall_score(y_test, model.predict(X_test)),
+                "precision_test": precision_score(y_test, model.predict(X_test)),
+
             }
         )
+        print(model)
     # In case we have multiple models
-    best_model = max(opt_models, key=lambda x: x["score"])
+    best_model = max(opt_models, key=lambda x: x["score_test"])
 
     if log_to_mlflow:
-        model_metrics = {"f1": best_model["score"]}
+        model_metrics = {"f1_train": best_model["score_train"],
+                         "recall_train": best_model["recall_train"],
+                         "precision_train": best_model["recall_train"],
+                         "f1_test": best_model["score_test"],
+                         "recall_test": best_model["recall_test"],
+                         "precision_test": best_model["recall_test"],
+                         }
 
     mlflow.log_metrics(model_metrics)
     mlflow.log_params(optimum_params)
